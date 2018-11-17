@@ -126,7 +126,7 @@
         }
       }
     },
-    "@spremi/svg-icon": {
+    "lib-svg-icon": {
       "root": "projects/spremi/svg-icon",
       "sourceRoot": "projects/spremi/svg-icon/src",
       "projectType": "library",
