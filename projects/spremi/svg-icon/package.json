@@ -1,6 +1,20 @@
 {
   "name": "@spremi/svg-icon",
   "version": "0.0.1",
+  "description": "Add SVG icons",
+  "repository": "https://github.com/spremi/svg-icon.git",
+  "homepage": "https://github.com/spremi/svg-icon",
+  "author": {
+    "name": "Sanjeev Premi",
+    "email": "spremi@ymail.com",
+    "url": "https://github.com/spremi"
+  },
+  "keywords": [
+    "angular",
+    "svg",
+    "icon"
+  ],
+  "license": "BSD-3-Clause",
   "peerDependencies": {
     "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
     "@angular/core": "^6.0.0-rc.0 || ^6.0.0"
