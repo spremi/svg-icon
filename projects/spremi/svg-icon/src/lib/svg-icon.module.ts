@@ -1,6 +1,12 @@
-import { NgModule, Optional, SkipSelf } from '@angular/core';
+import {
+  ModuleWithProviders,
+  NgModule,
+  Optional,
+  SkipSelf,
+} from '@angular/core';
 
 import { SvgIconComponent } from './svg-icon.component';
+import { SvgIconService } from './svg-icon.service';
 
 @NgModule({
   imports: [],
@@ -14,5 +20,9 @@ export class SvgIconModule {
         'SvgIconModule is already loaded. Import it in the AppModule only',
       );
     }
+  }
+
+  static forRoot(): ModuleWithProviders {
+    return { ngModule: SvgIconModule, providers: [SvgIconService] };
   }
 }
