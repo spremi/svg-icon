@@ -16,6 +16,14 @@
     "lib": [
       "es2017",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@spremi/svg-icon": [
+        "dist/spremi/svg-icon"
+      ],
+      "@spremi/svg-icon/*": [
+        "dist/spremi/svg-icon/*"
+      ]
+    }
   }
 }
