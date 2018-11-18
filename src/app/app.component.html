@@ -1,20 +1,85 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<h1>ang-svg-icon</h1>
+<p>Uses library <code>@spremi/svg-icon</code> (imported locally).</p>
 
+<h2>Basic usage - Default size</h2>
+
+<div class="box">
+  <span>
+    <ang-svg-icon url="/assets/ic_apps_24px.svg"></ang-svg-icon>
+  </span>
+  <span>
+    <ang-svg-icon url="/assets/ic_close_24px.svg"></ang-svg-icon>
+  </span>
+  <span>
+    <ang-svg-icon url="/assets/ic_memory_24px.svg"></ang-svg-icon>
+  </span>
+  <span>
+    <ang-svg-icon url="/assets/ic_grade_24px.svg"></ang-svg-icon>
+  </span>
+</div>
+
+<h2>Basic usage - Specify size</h2>
+
+<div class="box">
+  <span>
+    <ang-svg-icon url="/assets/ic_apps_24px.svg" width="24" height="24"></ang-svg-icon>
+  </span>
+  <span>
+    <ang-svg-icon url="/assets/ic_close_24px.svg" width="24" height="24"></ang-svg-icon>
+  </span>
+  <span>
+    <ang-svg-icon url="/assets/ic_memory_24px.svg" width="24" height="24"></ang-svg-icon>
+  </span>
+  <span>
+    <ang-svg-icon url="/assets/ic_grade_24px.svg" width="24" height="24"></ang-svg-icon>
+  </span>
+</div>
+
+<h2>Custom fill colors</h2>
+
+<div class="box">
+  <span style="fill: seagreen">
+    <ang-svg-icon url="/assets/ic_apps_24px.svg" width="24" height="24"></ang-svg-icon>
+  </span>
+  <span style="fill:salmon">
+    <ang-svg-icon url="/assets/ic_close_24px.svg" width="24" height="24"></ang-svg-icon>
+  </span>
+  <span style="fill: dodgerblue">
+    <ang-svg-icon url="/assets/ic_memory_24px.svg" width="24" height="24"></ang-svg-icon>
+  </span>
+  <span style="fill: olive">
+    <ang-svg-icon url="/assets/ic_grade_24px.svg" width="24" height="24"></ang-svg-icon>
+  </span>
+</div>
+
+<h2>Icons (on error)</h2>
+<div class="box">
+  <span>
+    <ang-svg-icon url="/assets/err1.svg" width="24" height="24"></ang-svg-icon>
+  </span>
+  <span>
+    <ang-svg-icon url="/assets/err2.svg" width="24" height="24"></ang-svg-icon>
+  </span>
+  <span>
+    <ang-svg-icon url="/assets/err.svg" width="24" height="24"></ang-svg-icon>
+  </span>
+  <span>
+    <ang-svg-icon url="/assets/err.svg" width="24" height="24"></ang-svg-icon>
+  </span>
+</div>
+
+<h2>Icons (on error, different sizes) </h2>
+<div class="box">
+  <span>
+    <ang-svg-icon url="/assets/err1.svg" width="16" height="16"></ang-svg-icon>
+  </span>
+  <span>
+    <ang-svg-icon url="/assets/err2.svg" width="24" height="24"></ang-svg-icon>
+  </span>
+  <span>
+    <ang-svg-icon url="/assets/err.svg" width="32" height="32"></ang-svg-icon>
+  </span>
+  <span>
+    <ang-svg-icon url="/assets/err.svg" width="48" height="48"></ang-svg-icon>
+  </span>
+</div>

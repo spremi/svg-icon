@@ -1,0 +1,14 @@
+:host {
+  font-family: 'Roboto', 'sans';
+
+  .box {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+
+    padding: 16px;
+
+    border : 1px solid lightgrey;
+  }
+}
