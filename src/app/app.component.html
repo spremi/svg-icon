@@ -1,7 +1,10 @@
-<h1>ang-svg-icon</h1>
-<p>Uses library <code>@spremi/svg-icon</code> (imported locally).</p>
+<h1>{{title}}</h1>
 
-<h2>Basic usage - Default size</h2>
+<p>Being the <strong>parent</strong> application of <code>@spremi/svg-icon</code>,
+it uses <strong>relative</strong> import. It is quite useful during development.</p>
+
+<h2>Basic usage</h2>
+<h3>Use icons as-is</h3>
 
 <div class="box">
   <span>
@@ -18,7 +21,7 @@
   </span>
 </div>
 
-<h2>Basic usage - Specify size</h2>
+<h3>Specify original size</h3>
 
 <div class="box">
   <span>
@@ -35,24 +38,80 @@
   </span>
 </div>
 
-<h2>Custom fill colors</h2>
+<h3>Specify different size</h3>
+
+<div class="box">
+  <span>
+    <ang-svg-icon url="/assets/ic_apps_24px.svg" width="16" height="16"></ang-svg-icon>
+  </span>
+  <span>
+    <ang-svg-icon url="/assets/ic_close_24px.svg" width="32" height="32"></ang-svg-icon>
+  </span>
+  <span>
+    <ang-svg-icon url="/assets/ic_memory_24px.svg" width="20" height="20"></ang-svg-icon>
+  </span>
+  <span>
+    <ang-svg-icon url="/assets/ic_grade_24px.svg" width="40" height="40"></ang-svg-icon>
+  </span>
+</div>
+
+<h3>Specify scaling factor</h3>
+
+<div class="box">
+  <span>
+    <ang-svg-icon url="/assets/ic_apps_24px.svg" scale="1"></ang-svg-icon>
+  </span>
+  <span>
+    <ang-svg-icon url="/assets/ic_close_24px.svg" scale="2"></ang-svg-icon>
+  </span>
+  <span>
+    <ang-svg-icon url="/assets/ic_memory_24px.svg" scale="3"></ang-svg-icon>
+  </span>
+  <span>
+    <ang-svg-icon url="/assets/ic_grade_24px.svg" scale="4"></ang-svg-icon>
+  </span>
+</div>
+
+<h3>Inherit fill color</h3>
 
 <div class="box">
   <span style="fill: seagreen">
-    <ang-svg-icon url="/assets/ic_apps_24px.svg" width="24" height="24"></ang-svg-icon>
+    <ang-svg-icon url="/assets/ic_apps_24px.svg"></ang-svg-icon>
   </span>
   <span style="fill:salmon">
-    <ang-svg-icon url="/assets/ic_close_24px.svg" width="24" height="24"></ang-svg-icon>
+    <ang-svg-icon url="/assets/ic_close_24px.svg"></ang-svg-icon>
   </span>
   <span style="fill: dodgerblue">
-    <ang-svg-icon url="/assets/ic_memory_24px.svg" width="24" height="24"></ang-svg-icon>
+    <ang-svg-icon url="/assets/ic_memory_24px.svg"></ang-svg-icon>
   </span>
   <span style="fill: olive">
-    <ang-svg-icon url="/assets/ic_grade_24px.svg" width="24" height="24"></ang-svg-icon>
+    <ang-svg-icon url="/assets/ic_grade_24px.svg"></ang-svg-icon>
   </span>
 </div>
 
-<h2>Icons (on error)</h2>
+<h3>Specify different sizes & Inherit fill color</h3>
+
+<div class="box">
+  <span style="fill: indigo">
+    <ang-svg-icon url="/assets/ic_apps_24px.svg" width="48" height="48"></ang-svg-icon>
+  </span>
+  <span style="fill: maroon">
+    <ang-svg-icon url="/assets/ic_close_24px.svg" width="64" height="64"></ang-svg-icon>
+  </span>
+  <span style="fill: orangered">
+    <ang-svg-icon url="/assets/ic_memory_24px.svg" width="72" height="72"></ang-svg-icon>
+  </span>
+  <span style="fill: teal">
+    <ang-svg-icon url="/assets/ic_grade_24px.svg" width="96" height="96"></ang-svg-icon>
+  </span>
+</div>
+
+<h2>Advanced usage </h2>
+
+<h3>Error icon - Set during initialization</h3>
+
+<p>See <code>app.module.ts</code> to view related changes.</p>
+
 <div class="box">
   <span>
     <ang-svg-icon url="/assets/err1.svg" width="24" height="24"></ang-svg-icon>
@@ -68,7 +127,8 @@
   </span>
 </div>
 
-<h2>Icons (on error, different sizes) </h2>
+<h3>Error icon - Set during initialization (different sizes)</h3>
+
 <div class="box">
   <span>
     <ang-svg-icon url="/assets/err1.svg" width="16" height="16"></ang-svg-icon>
