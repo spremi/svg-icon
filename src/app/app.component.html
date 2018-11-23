@@ -158,3 +158,31 @@ it uses <strong>relative</strong> import. It is quite useful during development.
     <ang-svg-icon url="/assets/err.svg" width="144" height="144"></ang-svg-icon>
   </span>
 </div>
+
+<h3>Error icon - Changed at run-time</h3>
+<p>...only to demonstrate that error icon & fill can be changed at run-time.</p>
+
+<ng-container
+  *ngIf="errIconChanged; then showIcons; else countDown">
+</ng-container>
+
+<ng-template #showIcons>
+  <div class="box" *ngIf="errIconChanged">
+    <span>
+      <ang-svg-icon url="/assets/err.svg" width="32" height="32"></ang-svg-icon>
+    </span>
+    <span>
+      <ang-svg-icon url="/assets/err.svg" width="64" height="64"></ang-svg-icon>
+    </span>
+    <span>
+      <ang-svg-icon url="/assets/err.svg" width="40" height="40"></ang-svg-icon>
+    </span>
+    <span>
+      <ang-svg-icon url="/assets/err.svg" width="80" height="80"></ang-svg-icon>
+    </span>
+  </div>
+</ng-template>
+
+<ng-template #countDown>
+  <p class="counter">The icon shall change in <strong>{{count}}</strong> seconds...</p>
+</ng-template>
