@@ -4,6 +4,8 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
+import { SvgGetOptions } from './svg-get-options';
+
 /**
  * Default template for blank SVG
  */
@@ -44,9 +46,10 @@ export class SvgIconService {
   /**
    * Returns content of SVG at specified URL
    *
-   * @param url   URL of the icon
+   * @param url     URL of the icon
+   * @param opts    Additional options
    */
-  get(url: string): Observable<SafeHtml> {
+  get(url: string, opts?: SvgGetOptions): Observable<SafeHtml> {
     return this.http.get(url, { responseType: 'text' }).pipe(
       map((result) => {
         return this.sanitizer.bypassSecurityTrustHtml(result);
