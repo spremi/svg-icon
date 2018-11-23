@@ -62,6 +62,28 @@ export class SvgIconService {
         let icon;
 
         //
+        // Option - Scale
+        //
+        if (opts.scale) {
+          // TODO: Optimize regex matches below
+          const matchWidth = result.match(/width="(\d+)"/);
+          const matchHeight = result.match(/height="(\d+)"/);
+
+          if (matchWidth && matchHeight) {
+            const width = parseInt(matchWidth[1], 10) * opts.scale;
+            const height = parseInt(matchHeight[1], 10) * opts.scale;
+
+            icon = result
+              .replace(/width="\d+"/g, `width="${width}"`)
+              .replace(/height="\d+"/g, `height="${height}"`);
+
+            return this.sanitizer.bypassSecurityTrustHtml(icon);
+          } else {
+            return this.sanitizer.bypassSecurityTrustHtml(result);
+          }
+        }
+
+        //
         // Option - Specific size
         //
         if (opts.size) {
