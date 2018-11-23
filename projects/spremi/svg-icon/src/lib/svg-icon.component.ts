@@ -38,6 +38,12 @@ export class SvgIconComponent implements OnInit, OnDestroy {
   private _height = DefaultIconHeight;
 
   /**
+   * Scale factor
+   * If specified, takes precedence over _width & _height.
+   */
+  private _scale: number;
+
+  /**
    * Subscription
    */
   private _sub: Subscription;
@@ -79,6 +85,15 @@ export class SvgIconComponent implements OnInit, OnDestroy {
 
     if (!isNaN(num)) {
       this._height = num;
+    }
+  }
+
+  @Input()
+  set scale(scale: string) {
+    const num = parseInt(scale, 10);
+
+    if (!isNaN(num)) {
+      this._scale = num;
     }
   }
 
