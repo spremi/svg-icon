@@ -33,6 +33,7 @@ const CUST_ERROR = `<svg xmlns="http://www.w3.org/2000/svg"
 })
 export class AppModule {
   constructor(private iconSvc: SvgIconService) {
+    this.iconSvc.setErrorFill('#ff1744');
 
     this.iconSvc.setErrorTemplate(CUST_ERROR);
   }
