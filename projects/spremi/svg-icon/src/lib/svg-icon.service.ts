@@ -52,7 +52,25 @@ export class SvgIconService {
   get(url: string, opts?: SvgGetOptions): Observable<SafeHtml> {
     return this.http.get(url, { responseType: 'text' }).pipe(
       map((result) => {
-        return this.sanitizer.bypassSecurityTrustHtml(result);
+        //
+        // No options. Return as-is
+        //
+        if (!opts) {
+          return this.sanitizer.bypassSecurityTrustHtml(result);
+        }
+
+        let icon;
+
+        //
+        // Option - Specific size
+        //
+        if (opts.size) {
+          icon = result
+            .replace(/width="\d+"/g, `width="${opts.size.width}"`)
+            .replace(/height="\d+"/g, `height="${opts.size.height}"`);
+
+          return this.sanitizer.bypassSecurityTrustHtml(icon);
+        }
       }),
     );
   }
