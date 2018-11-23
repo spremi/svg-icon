@@ -2,6 +2,7 @@ import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { SafeHtml } from '@angular/platform-browser';
 import { Subscription } from 'rxjs';
 
+import { SvgGetOptions } from './svg-get-options';
 import { SvgIconService } from './svg-icon.service';
 
 /**
@@ -102,7 +103,15 @@ export class SvgIconComponent implements OnInit, OnDestroy {
 
     this.markup = this.iconSvc.getBlank(this._width, this._height);
 
-    this._sub = this.iconSvc.get(this._url).subscribe(
+    let getOpts: SvgGetOptions;
+
+    if (this._scale && this._scale !== 1) {
+      getOpts = { scale: this._scale };
+    } else if (this._width && this._height) {
+      getOpts = { size: { width: this._width, height: this._height } };
+    }
+
+    this._sub = this.iconSvc.get(this._url, getOpts).subscribe(
       (icon) => {
         this.markup = icon;
       },
