@@ -63,11 +63,30 @@ We need to import ``SvgIconService`` as well.
 import { SvgIconModule, SvgIconService } from '@spremi/svg-icon';
 ```
 
-### Set custom fill color for _error_ icons
+### Set custom fill color for **error** icons
 ```typescript
 export class AppModule {
   constructor(private iconSvc: SvgIconService) {
     this.iconSvc.setErrorFill('purple');
+  }
+}
+```
+
+### Set custom **error** SVG
+Add markup for the custom error SVG.
+- Ensure it has ``viewBox`` defined, so that it scales well.
+- Change ``width`` and ``height`` to ``%WIDTH%`` and ``%HEIGHT%`` as shown below.
+
+```typescript
+const CUST_ERROR = `<svg xmlns="http://www.w3.org/2000/svg"
+  width="%WIDTH%" height="%HEIGHT%" viewBox="0 0 24 24">
+  ...
+  ...
+  </svg >`;
+
+export class AppModule {
+  constructor(private iconSvc: SvgIconService) {
+    this.iconSvc.setErrorTemplate(CUST_ERROR);
   }
 }
 ```
