@@ -30,12 +30,12 @@ export class SvgIconComponent implements OnInit, OnDestroy {
   /**
    * Icon width
    */
-  private _width: number;
+  private _width = DefaultIconWidth;
 
   /**
    * Icon height
    */
-  private _height: number;
+  private _height = DefaultIconHeight;
 
   /**
    * Subscription
@@ -66,12 +66,20 @@ export class SvgIconComponent implements OnInit, OnDestroy {
 
   @Input()
   set width(width: string) {
-    this._width = this.toNumber(width, DefaultIconWidth);
+    const num = parseInt(width, 10);
+
+    if (!isNaN(num)) {
+      this._width = num;
+    }
   }
 
   @Input()
   set height(height: string) {
-    this._height = this.toNumber(height, DefaultIconHeight);
+    const num = parseInt(height, 10);
+
+    if (!isNaN(num)) {
+      this._height = num;
+    }
   }
 
   ngOnInit() {
@@ -95,15 +103,5 @@ export class SvgIconComponent implements OnInit, OnDestroy {
     if (this._sub) {
       this._sub.unsubscribe();
     }
-  }
-
-  /**
-   * Returns dimension as number.
-   * On error, returns fallback value.
-   */
-  private toNumber(arg: string, fallback: number): number {
-    const num = parseInt(arg, 10);
-
-    return isNaN(num) ? fallback : num;
   }
 }
