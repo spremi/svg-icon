@@ -32,11 +32,11 @@ Beta
 
 ### npm
 ```
-npm install --save @spremi/ang-svg-icon
+npm install --save @spremi/svg-icon
 ```
 ### yarn
 ```
-yarn add @spremi/ang-svg-icon
+yarn add @spremi/svg-icon
 ```
 ## Dependencies
 
@@ -50,6 +50,7 @@ imports: [BrowserModule, HttpClientModule],
 
 ## How to use
 
+### Import the module
 In ``app.module.ts``, import ``SvgIconModule``.
 - Also import ``HttpClientModule``, if not already.
 
@@ -65,17 +66,26 @@ import { SvgIconModule } from '@spremi/svg-icon';
 export class AppModule {}
 ```
 
-In the HTML template:
+### Add icons to the project
 
-Add icon as-is:
+Add icons to a sub-directory that can be accessed at runtime.
+
+In the projects generated via ``@angular/cli``, the sub-directory ``src/assets``
+can be accessed as ``/assets``.
+
+### Update HTML template
+
+#### Add icon as-is:
 ```html
 <ang-svg-icon url="/assets/my_icon.svg"></ang-svg-icon>
 ```
-Add icon with width and height set as 24 pixels:
+
+#### Add icon with width and height set as 24 pixels:
 ```html
 <ang-svg-icon url="/assets/my_icon.svg" width="24" height="24"></ang-svg-icon>
 ```
-Add icon and scale it **2x**:
+
+#### Add icon and scale it **2x**:
 ```html
 <ang-svg-icon url="/assets/my_icon.svg" scale="2"></ang-svg-icon>
 ```
