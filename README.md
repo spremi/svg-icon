@@ -1,6 +1,6 @@
 # svg-icon
 
-This is the _parent_ project for `**ang-svg-icon**` module.
+This is the _parent_ project for module: [@spremi/svg-icon](https://www.npmjs.com/package/@spremi/svg-icon).
 
 Source for the module is located in the directory `projects/svg-icon`.
 
