@@ -1,9 +1,9 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { SafeHtml } from '@angular/platform-browser';
-import { Subscription } from 'rxjs';
 
 import { SvgGetOptions } from './svg-get-options';
 import { SvgIconService } from './svg-icon.service';
+import { take } from 'rxjs/operators';
 
 /**
  * Default icon width
@@ -22,7 +22,7 @@ const DefaultIconHeight = 24;
   `,
   styles: [],
 })
-export class SvgIconComponent implements OnInit, OnDestroy {
+export class SvgIconComponent implements OnInit, OnChanges {
   /**
    * URL for the icon
    */
@@ -45,11 +45,6 @@ export class SvgIconComponent implements OnInit, OnDestroy {
   private _scale: number;
 
   /**
-   * Subscription
-   */
-  private _sub: Subscription;
-
-  /**
    * Sanitized SVG markup
    */
   public markup: SafeHtml;
@@ -64,45 +59,64 @@ export class SvgIconComponent implements OnInit, OnDestroy {
    */
   public errFill: string;
 
-  constructor(private iconSvc: SvgIconService) {}
+  @Input()
+  url: string;
 
   @Input()
-  set url(url: string) {
-    this._url = url;
-  }
+  width: string;
 
   @Input()
-  set width(width: string) {
-    const num = parseInt(width, 10);
-
-    if (!isNaN(num)) {
-      this._width = num;
-    }
-  }
+  height: string;
 
   @Input()
-  set height(height: string) {
-    const num = parseInt(height, 10);
+  scale: string;
 
-    if (!isNaN(num)) {
-      this._height = num;
-    }
-  }
-
-  @Input()
-  set scale(scale: string) {
-    const num = parseInt(scale, 10);
-
-    if (!isNaN(num)) {
-      this._scale = num;
-    }
-  }
+  constructor(private iconSvc: SvgIconService) { }
 
   ngOnInit() {
+    this.setUrl(this.url);
+    this.setWidth(this.width);
+    this.setHeight(this.height);
+    this.setScale(this.scale);
+
     this.errFill = this.iconSvc.getErrorFill();
 
     this.markup = this.iconSvc.getBlank(this._width, this._height);
 
+    this.getIcon();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    for (const item in changes) {
+      if (!item) {
+        continue;
+      }
+
+      switch (item) {
+        case 'url':
+          this.setUrl(changes[item].currentValue as string);
+          break;
+
+        case 'width':
+          this.setWidth(changes[item].currentValue as string);
+          break;
+
+        case 'height':
+          this.setHeight(changes[item].currentValue as string);
+          break;
+
+        case 'scale':
+          this.setScale(changes[item].currentValue as string);
+          break;
+
+        default:
+      }
+    }
+
+    this.getIcon();
+  }
+
+  private getIcon() {
     let getOpts: SvgGetOptions;
 
     if (this._scale && this._scale !== 1) {
@@ -111,7 +125,7 @@ export class SvgIconComponent implements OnInit, OnDestroy {
       getOpts = { size: { width: this._width, height: this._height } };
     }
 
-    this._sub = this.iconSvc.get(this._url, getOpts).subscribe(
+    this.iconSvc.get(this._url, getOpts).pipe(take(1)).subscribe(
       (icon) => {
         this.markup = icon;
       },
@@ -123,9 +137,31 @@ export class SvgIconComponent implements OnInit, OnDestroy {
     );
   }
 
-  ngOnDestroy() {
-    if (this._sub) {
-      this._sub.unsubscribe();
+  private setUrl(url: string) {
+    this._url = url;
+  }
+
+  private setWidth(width: string) {
+    const num = parseInt(width, 10);
+
+    if (!isNaN(num)) {
+      this._width = num;
+    }
+  }
+
+  private setHeight(height: string) {
+    const num = parseInt(height, 10);
+
+    if (!isNaN(num)) {
+      this._height = num;
+    }
+  }
+
+  private setScale(scale: string) {
+    const num = parseInt(scale, 10);
+
+    if (!isNaN(num)) {
+      this._scale = num;
     }
   }
 }
