@@ -11,6 +11,8 @@ The icons are included inline. So, they can be manipulated via CSS.
   - Can be used as filler.
 * Provides an **error icon** - used when specified SVG icon is not found.
   - Developers can spot missing icons easily.
+* **[NEW]** Dynamically change input params.
+  - See example in [StackBlitz](https://ang-svg-icons.stackblitz.io).
 * **Customizable**
   - Set specific icon size.
   - Scale icon by a factor.
