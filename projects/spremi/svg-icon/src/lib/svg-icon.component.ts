@@ -18,9 +18,14 @@ const DefaultIconHeight = 24;
 @Component({
   selector: 'ang-svg-icon',
   template: `
-    <span [style.fill]="err ? errFill : 'inherit'" [innerHtml]="markup"> </span>
+    <div [style.fill]="err ? errFill : 'inherit'" [innerHtml]="markup"></div>
   `,
-  styles: [],
+  styles: [
+    `:host, :host div {
+      display: inline-block;
+      line-height: 0;
+    }`
+  ],
 })
 export class SvgIconComponent implements OnInit, OnChanges {
   /**
