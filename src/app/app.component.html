@@ -106,6 +106,17 @@ it uses <strong>relative</strong> import. It is quite useful during development.
   </span>
 </div>
 
+<h2>Dynamic param changes</h2>
+<div class="box fixed">
+  <button (click)="flag=!flag" type=”button”>TOGGLE ME [{{flag}}]</button>
+
+  <ang-svg-icon
+    [url]="flag ? '/assets/ic_apps_24px.svg' : '/assets/ic_memory_24px.svg'"
+    [width]="flag ? '96' : '48'"
+    [height]="flag ? '96' : '48'"
+  ></ang-svg-icon>
+</div>
+
 <h2>Advanced usage </h2>
 
 <h3>Error icon - Set during initialization</h3>

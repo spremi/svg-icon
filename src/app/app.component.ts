@@ -32,6 +32,11 @@ export class AppComponent implements OnInit, OnDestroy {
    */
   errIconChanged = false;
 
+  /**
+   * Flag to demo dynamic parameter changes.
+   */
+  flag = true;
+
   constructor(private iconSvc: SvgIconService) {}
 
   ngOnInit() {
