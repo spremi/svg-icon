@@ -17,15 +17,21 @@
     "angular 6",
     "angular 7",
     "angular 8",
+    "angular 9",
+    "angular 10",
+    "angular 11",
     "ng6",
     "ng7",
     "ng8",
+    "ng9",
+    "ng10",
+    "ng11",
     "svg",
     "icon"
   ],
   "license": "BSD-3-Clause",
   "peerDependencies": {
-    "@angular/common": ">=6.0.0 <9.0.0",
-    "@angular/core": ">=6.0.0 <9.0.0"
+    "@angular/common": ">=6.0.0 <12.0.0",
+    "@angular/core": ">=6.0.0 <12.0.0"
   }
 }
